@@ -1,0 +1,98 @@
+main#star-wars-main {
+  user-select: none;
+  perspective: 300px;
+  $delay: 1;
+  $long-time-ago-duration: 7;
+  #long-time-ago {
+      color: #24E8EE;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      opacity: 0;
+      animation: long-time-ago $long-time-ago-duration + s ease-out $delay + s forwards;
+      $delay: $long-time-ago-duration + $delay;
+      h2 {
+          width: 18em;
+          font-size: 300%;
+      }
+  }
+  #star-wars-logo {
+      width: 100%;
+      transform: scale(0);
+      display: block;
+      $star-wars-logo-duration: 9;
+      animation: star-wars-logo $star-wars-logo-duration + s linear $delay + s forwards;
+      $delay: $star-wars-logo-duration + $delay;
+  }
+  #intro-resume {
+      display: flex;
+      justify-content: center;
+      > div {
+          color: #FFC500;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          max-width: 600px;
+          font-size: 200%;
+          text-align: justify;
+          transform: rotateX(35deg) translateY(85%);
+          animation: star-wars-intro 120s linear 11s;
+          #movie-title {
+              text-align: center;
+              h2 {
+                  font-size: 50px;
+              }
+          }
+          p {
+              font-weight: 700;
+          }
+      }
+  }
+}
+
+@keyframes long-time-ago {
+  0% {
+      opacity: 0;
+  }
+  25%, 85% {
+      opacity: 1;
+  }
+  95% {
+      opacity: 0;
+      display: none;
+      width: 100%;
+      height: 100vh;
+  }
+  100% {
+      width: 0;
+      height: 0;
+  }
+}
+
+@keyframes star-wars-logo {
+  0% {
+      transform: scale(1.5);
+  }
+  50% {
+      transform: scale(1);
+  }
+  95% {
+      transform: scale(0);
+      display: none;
+      width: 100%;
+  }
+  100% {
+      width: 0;
+  }
+}
+
+@keyframes star-wars-intro {
+  0% {
+      transform: rotateX(35deg) translateY(80%);
+  }
+  100% {
+      transform: rotateX(35deg) translateY(-150%);
+  }
+}
